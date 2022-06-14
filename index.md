@@ -5,4 +5,30 @@
 layout: default
 ---
 
-Blah main page
+# What is this good for?
+
+blah stuff
+
+# Optimizing Code
+
+
+# Videos
+
+
+# Getting Started
+
+
+# Background & Motivation
+
+
+# Is Exo Right for Me?
+
+
+# Under Construction! (and Limitations)
+
+
+# Publications & Learning More
+
+
+
+

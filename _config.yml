@@ -16,7 +16,9 @@
 title: The Exo Language
 #email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Exo is a low-level language (and exocompiler) design to help performance engineers write, optimize, and target high-performance computing kernels onto new hardware accelerators.
+  Exo is a low-level language (and exocompiler) designed to help
+  performance engineers write, optimize, and target high-performance
+  computing kernels onto new hardware accelerators.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: ""

@@ -5,6 +5,8 @@
 layout: default
 ---
 
+<style>pre.highlight { line-height: 1.2em; max-height: 25em; overflow: scroll; }</style>
+
 # What does Exo do?
 
 Exo is a domain-specific programming language that helps low-level
@@ -21,8 +23,11 @@ we will post it here!
 
 # Getting Started
 
-Working with Exo is easy! Start by creating a virtual environment 
-for your project:
+## Setting up
+
+Working with Exo is easy! We'll follow a standard workflow for creating 
+a new Python project. Start by creating a virtual environment for your 
+project. Note that Exo requires Python 3.9
 
 ```
 $ python3 -m venv venv
@@ -36,7 +41,99 @@ $ python -m pip install -U setuptools wheel
 $ python -m pip install exo-lang
 ```
 
-We'll download an example program and try compiling it.
+## Hello Exo!
+
+Let's write a naive matrix multiply function in Exo. Put the following
+code in a file called `example.py`:
+
+```
+# example.py
+from __future__ import annotations
+from exo import *
+
+@proc
+def example_sgemm(
+    M: size,
+    N: size,
+    K: size,
+    C: f32[M, N] @ DRAM,
+    A: f32[M, K] @ DRAM,
+    B: f32[K, N] @ DRAM,
+):
+    for i in seq(0, M):
+        for j in seq(0, N):
+            for k in seq(0, K):
+                C[i, j] += A[i, k] * B[k, j]
+```
+
+And now we can run the exo compiler:
+
+```
+$ exocc -o out --stem example example.py
+$ ls out
+example.c  example.h
+```
+
+These can either be compiled into a library (static or shared) or 
+compiled directly into your application. You will need to write a
+short runner program yourself to test this code. For example:
+
+```
+// main.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#include "example.h"
+
+float* new_mat(int size, float value) {
+  float* mat = malloc(size * sizeof(*mat));
+  for (int i = 0; i < size; i++) {
+    mat[i] = value;
+  }
+  return mat;
+}
+
+int main(int argc, char* argv[]) {
+  if (argc != 4) {
+    printf("Usage: %s M N K\n", argv[0]);
+    return EXIT_FAILURE;
+  }
+
+  int M = atoi(argv[1]);
+  int N = atoi(argv[2]);
+  int K = atoi(argv[3]);
+
+  if (M < 1 || N < 1 || K < 1) {
+    printf("M, N, and K must all be positive!\n");
+    return EXIT_FAILURE;
+  }
+
+  float* A = new_mat(M * K, 2.0);
+  float* B = new_mat(K * N, 3.0);
+  float* C = new_mat(M * N, 0.0);
+
+  const int n_trials = 1000;
+
+  clock_t start = clock();
+  for (int i = 0; i < n_trials; i++) {
+    example_sgemm(NULL, M, N, K, C, A, B);
+  }
+  clock_t end = clock();
+
+  int msec = (end - start) * n_trials / CLOCKS_PER_SEC;
+
+  printf("Each iteration ran in %d milliseconds\n", msec);
+}
+```
+
+Then this can be easily compiled and run:
+
+```
+$ gcc -I out/ -o runner main.c out/example.c
+$ ./runner 128 128 128
+Each iteration ran in 11590 milliseconds
+```
 
 # Background & Motivation
 
@@ -56,9 +153,18 @@ In particular, if you just want to optimize image processing code
 for consumer CPUs and GPUs, then [Halide](https://halide-lang.org) 
 might be a better fit.
 
-# 🚧 Under Construction! (and Limitations)
+# 🚧 Under Construction! 🚧 
 
-Exo is a young research project and under active development.
+Exo is a young research project and under active development. Here 
+are some of the things we'd like to add to Exo (or perhaps know we 
+cannot).
+
+1. Automatic generation of runner programs to make benchmarking 
+   easier.
+2. A brand new and more robust scheduling API based on a new AST 
+   pointing technology we're calling "cursors".
+3. Support for data-dependent accesses (e.g. histograms).
+4. An LLVM or MLIR backend
 
 # Publications & Learning More
 
@@ -72,7 +178,6 @@ So far, we have published the following papers on Exo:
    International Conference on Programming Language Design and 
    Implementation (PLDI 2022). Association for Computing 
    Machinery, New York, NY, USA, 703–718.
-
 
 [exo-acm]: https://dl.acm.org/doi/abs/10.1145/3519939.3523446
 [yuka-web]: https://people.csail.mit.edu/yuka/

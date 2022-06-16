@@ -14,7 +14,56 @@ performance engineers transform very simple programs that specify
 what they want to compute into very complex programs that do the
 same thing as the specification, only much, much faster.
 
+
+# Background & Motivation
+
+The highest performance hardware made today (such as Google's TPU, 
+Apple's Neural Engine, or Nvidia's Tensor Cores) power key 
+scientific computing and machine learning kernels: the Basic 
+Linear Algebra Subroutines (BLAS) library, for example. However, 
+these new chips—which take hundreds of engineers to design—are 
+only as good (i.e. high performance) for application developers as 
+these kernels allow.
+
+Unlike other programming languages and compilers, Exo is built around 
+the concept of _exocompilation_. Traditionally, compilers are built 
+to automatically optimize programs for running on some piece of 
+hardware. This is great for most programmers, but for performance 
+engineers the compiler gets in the way as often as it helps. Because 
+the compiler's optimizations are totally automatic, there's no good 
+way to fix it when it does the wrong thing and gives you 45% 
+efficiency instead of 90%.
+
 # Optimizing Code
+
+With exocompilation, we put the performance engineer back in the 
+driver's seat. Responsibility for choosing which optimizations to 
+apply, when, and in what order is externalized from the compiler, 
+back to the performance engineer. This way they don't have to waste 
+time fighting the compiler on the one hand, or doing everything 
+totally manually on the other. At the same time, Exo takes 
+responsibility for ensuring that all of these optimizations are 
+correct. As a result, the performance engineer can spend their time 
+improving performance, rather than debugging the complex, optimized 
+code.
+
+Another key part of exocompilation is that performance engineers can 
+describe the new chips they want to optimize for, without having to 
+modify the compiler. Traditionally, the definition of the hardware 
+interface is maintained by the compiler developers. However, for most 
+new accelerator chips, the hardware interface is proprietary. It also 
+changes more frequently than for general purpose chips. Currently, 
+companies have to maintain their own fork of a whole traditional 
+compiler, modified to support their particular chip. This requires 
+hiring teams of compiler developers in addition to the performance 
+engineers.
+
+We've shown that we can use Exo to quickly write code that's as 
+performant as Intel's hand-optimized Math Kernel Library. We also 
+have an ongoing collaboration with UC Berkeley to create code for 
+GEMMINI, their open-source machine learning accelerator. We're 
+actively working with engineers and researchers at a number of 
+companies, and are eager to work with more!
 
 # Videos
 
@@ -135,8 +184,9 @@ $ ./runner 128 128 128
 Each iteration ran in 11590 milliseconds
 ```
 
-# Background & Motivation
-
+Now it's time to write a schedule to make this fast. See our [PLDI
+artifact] for a tutorial on using AVX2 to optimize the innermost 
+kernel. 
 
 # Is Exo Right for Me?
 
@@ -185,3 +235,7 @@ So far, we have published the following papers on Exo:
 [alex-web]: https://alexreinking.com
 [hasan-web]: https://hngenc.github.io/
 [jrk-web]: https://people.csail.mit.edu/jrk/
+[PLDI artifact]: https://github.com/ChezJrk/exo-artifact/blob/main/examples/x86_matmul.py
+[Halide]: https://halide-lang.org
+[TVM]: https://tvm.apache.org/
+[Tiramisu]: http://tiramisu-compiler.org/

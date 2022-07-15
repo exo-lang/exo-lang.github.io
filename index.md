@@ -184,8 +184,8 @@ $ ./runner 128 128 128
 Each iteration ran in 11590 milliseconds
 ```
 
-Now it's time to write a schedule to make this fast. See our [PLDI
-artifact] for a tutorial on using AVX2 to optimize the innermost 
+Now it's time to write a schedule to make this fast. See our [scheduling
+example] for a tutorial on using AVX2 to optimize the innermost
 kernel. 
 
 # Is Exo Right for Me?
@@ -235,7 +235,7 @@ So far, we have published the following papers on Exo:
 [alex-web]: https://alexreinking.com
 [hasan-web]: https://hngenc.github.io/
 [jrk-web]: https://people.csail.mit.edu/jrk/
-[PLDI artifact]: https://github.com/ChezJrk/exo-artifact/blob/main/examples/x86_matmul.py
+[scheduling example]: https://github.com/exo-lang/exo/tree/master/examples
 [Halide]: https://halide-lang.org
 [TVM]: https://tvm.apache.org/
 [Tiramisu]: http://tiramisu-compiler.org/

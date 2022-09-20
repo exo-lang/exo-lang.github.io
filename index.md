@@ -67,8 +67,10 @@ companies, and are eager to work with more!
 
 # Videos
 
-We gave a talk at PLDI 2022. When a video of the talk is available,
-we will post it here!
+Here is the talk we gave at PLDI 2022.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fFBzsbQjNyU" title="Exocompilation for productive programming of hardware accelerators" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 # Getting Started
 

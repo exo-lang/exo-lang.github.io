@@ -14,9 +14,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: The Exo Language
-#email: your-email@example.com
+email: exo@mit.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  Exo is a low-level language (and exocompiler) designed to help
+  Exo is a low-level language and a compiler designed to help
   performance engineers write, optimize, and target high-performance
   computing kernels onto new hardware accelerators.
 baseurl: "" # the subpath of your site, e.g. /blog

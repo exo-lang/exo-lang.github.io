@@ -65,31 +65,15 @@ GEMMINI, their open-source machine learning accelerator. We're
 actively working with engineers and researchers at a number of 
 companies, and are eager to work with more!
 
-# Videos
-
-Here is the talk we gave at PLDI 2022.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fFBzsbQjNyU" title="Exocompilation for productive programming of hardware accelerators" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 
 # Getting Started
 
 ## Setting up
 
-Working with Exo is easy! We'll follow a standard workflow for creating 
-a new Python project. Start by creating a virtual environment for your 
-project. Note that Exo requires Python 3.9
+We support Python 3.9 and above. If you're just using Exo, install it using pip:
 
 ```
-$ python3 -m venv venv
-$ . venv/bin/activate
-```
-
-Now, install `exo-lang`:
-
-```
-$ python -m pip install -U setuptools wheel
-$ python -m pip install exo-lang
+$ pip install exo-lang
 ```
 
 ## Hello Exo!
@@ -205,18 +189,11 @@ In particular, if you just want to optimize image processing code
 for consumer CPUs and GPUs, then [Halide](https://halide-lang.org) 
 might be a better fit.
 
-# 🚧 Under Construction! 🚧 
+# Contact
 
-Exo is a young research project and under active development. Here 
-are some of the things we'd like to add to Exo (or perhaps know we 
-cannot).
-
-1. Automatic generation of runner programs to make benchmarking 
-   easier.
-2. A brand new and more robust scheduling API based on a new AST 
-   pointing technology we're calling "cursors".
-3. Support for data-dependent accesses (e.g. histograms).
-4. An LLVM or MLIR backend
+Exo is under active development with core developers at MIT. We're actively
+seeking user feedback and collaboration. Please feel free to reach out to [exo@mit.edu](mailto:exo@mit.edu)
+or [yuka@csail.mit.edu](mailto:yuka@csail.mit.edu) with any questions you may have.
 
 # Publications & Learning More
 
@@ -230,6 +207,10 @@ So far, we have published the following papers on Exo:
    International Conference on Programming Language Design and 
    Implementation (PLDI 2022). Association for Computing 
    Machinery, New York, NY, USA, 703–718.
+
+Here is the talk we gave at PLDI 2022:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fFBzsbQjNyU" title="Exocompilation for productive programming of hardware accelerators" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 [exo-acm]: https://dl.acm.org/doi/abs/10.1145/3519939.3523446
 [yuka-web]: https://people.csail.mit.edu/yuka/

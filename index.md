@@ -174,6 +174,10 @@ Now it's time to write a schedule to make this fast. See our [scheduling
 example] for a tutorial on using AVX2 to optimize the innermost
 kernel. 
 
+## Tutorial
+
+[A more in-depth tutorial on using Exo to develop for a custom hardware accelerator is available as well.](./tutorial.html)
+
 # Is Exo Right for Me?
 
 1. Are you optimizing numerical programs?

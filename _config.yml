@@ -26,6 +26,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
+mathjax: true
 #theme: dinky
 remote_theme: pages-themes/dinky@v0.2.0
 plugins:

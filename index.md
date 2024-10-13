@@ -176,7 +176,7 @@ kernel.
 
 ## Tutorial
 
-[A more in-depth tutorial on using Exo to develop for a custom hardware accelerator is available as well.](./tutorial.html)
+A more in-depth tutorial on using Exo to develop kernels for custom hardware accelerators is available [here](./tutorial.html).
 
 # Is Exo Right for Me?
 
@@ -201,8 +201,9 @@ or [yuka@csail.mit.edu](mailto:yuka@csail.mit.edu) with any questions you may ha
 
 # Publications & Learning More
 
-So far, we have published the following papers on Exo:
+We have published several papers on Exo so far. For an overview, we recommend starting with our PLDI '22 paper. If you use Exo, please make sure to cite these papers!
 
+### Conference
 1. **[PLDI 22]:** [Yuka Ikarashi][yuka-web], [Gilbert Louis 
    Bernstein][gilbert-web], [Alex Reinking][alex-web], [Hasan 
    Genc][hasan-web], and [Jonathan Ragan-Kelley][jrk-web]. 2022. 
@@ -215,6 +216,12 @@ So far, we have published the following papers on Exo:
 Here is the talk we gave at PLDI 2022:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fFBzsbQjNyU" title="Exocompilation for productive programming of hardware accelerators" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+2. **[CGO 24]:** [Adrián Castelló][adrian-web], [Julian Bellavita][julien-web], [Grace Dinh][grace-web], [Yuka Ikarashi][yuka-web], Héctor Martínez. 2024. [Tackling the Matrix Multiplication Micro-kernel Generation with Exo][cgo-arxiv]. In Proceedings of the 2024 IEEE/ACM International Symposium on Code Generation and Optimization (CGO 2024). IEEE Press, Edinburgh, United Kingdom, 182–192.
+
+### Thesis
+1. [Yuka Ikarashi][yuka-web]'s Master thesis, 2022. [Exocompilation for Productive Programming of Hardware Accelerators][yuka-master] (same as the PLDI 22 paper)
+2. [Samir Droubi][samir-web]'s Master thesis, 2024. [ExoBLAS: Meta-Programming a High-Performance BLAS via Scheduling Automations][samir-thesis]
+3. Kevin Qian's Master thesis, 2024. [Practical Exocompilation for Performance Engineers in User-Schedulable Languages][kevin-thesis]
 
 [exo-acm]: https://dl.acm.org/doi/abs/10.1145/3519939.3523446
 [yuka-web]: https://people.csail.mit.edu/yuka/
@@ -226,3 +233,12 @@ Here is the talk we gave at PLDI 2022:
 [Halide]: https://halide-lang.org
 [TVM]: https://tvm.apache.org/
 [Tiramisu]: http://tiramisu-compiler.org/
+[samir-thesis]: https://dspace.mit.edu/handle/1721.1/156752
+[samir-web]: https://www.linkedin.com/in/samirdroubi/
+[yuka-master]: https://dspace.mit.edu/handle/1721.1/144822
+[kevin-thesis]: https://dspace.mit.edu/handle/1721.1/157187
+[adrian-web]: https://sites.google.com/view/adrian-castello
+[julien-web]: https://www.linkedin.com/in/julian-bellavita-5876551ba/
+[grace-web]: https://dinh.ai/
+[cgo-arxiv]: https://arxiv.org/pdf/2310.17408
+

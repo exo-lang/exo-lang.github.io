@@ -47,6 +47,11 @@ correct. As a result, the performance engineer can spend their time
 improving performance, rather than debugging the complex, optimized 
 code.
 
+You might ask: isn't giving performance engineers more control a bad thing? After all, they would have to choose which optimizations to apply for each and every kernel they encounter.
+We addresses this concern with Exo's Cursors mechanism, which allows users to define new scheduling operators directly in their code, external to the compiler.
+This enables the creation of reusable scheduling libraries that can amortize the effort of scheduling across many kernels.
+By doing so, the total amount of scheduling code required can be reduced by orders of magnitude compared to optimizing each kernel one by one.
+
 Another key part of exocompilation is that performance engineers can 
 describe the new chips they want to optimize for, without having to 
 modify the compiler. Traditionally, the definition of the hardware 
@@ -58,12 +63,8 @@ compiler, modified to support their particular chip. This requires
 hiring teams of compiler developers in addition to the performance 
 engineers.
 
-We've shown that we can use Exo to quickly write code that's as 
-performant as Intel's hand-optimized Math Kernel Library. We also 
-have an ongoing collaboration with UC Berkeley to create code for 
-GEMMINI, their open-source machine learning accelerator. We're 
-actively working with engineers and researchers at a number of 
-companies, and are eager to work with more!
+We've shown that we can use Exo to quickly write code that's as performant as Intel's hand-optimized MKL, OpenBLAS, and BLIS.
+We're actively working with engineers and researchers at a number of companies and institutions, and are eager to work with more!
 
 
 # Getting Started
@@ -174,24 +175,13 @@ Now it's time to write a schedule to make this fast. See our [scheduling
 example] for a tutorial on using AVX2 to optimize the innermost
 kernel. 
 
-## Tutorial
-
-A more in-depth tutorial on using Exo to develop kernels for custom hardware accelerators is available [here](./tutorial.html).
-
 # Is Exo Right for Me?
 
 1. Are you optimizing numerical programs?
-2. Are you targeting uncommon accelerator hardware or even 
-   developing your own?
-3. Do you need to get as close as possible to the physical limits 
-   of the hardware you're targeting?
+2. Are you targeting uncommon accelerator hardware or even developing your own?
+3. Do you need to get as close as possible to the physical limits of the hardware you're targeting?
 
-If you answered "yes!" to all of three questions, then Exo might 
-be right for you!
-
-In particular, if you just want to optimize image processing code 
-for consumer CPUs and GPUs, then [Halide](https://halide-lang.org) 
-might be a better fit.
+If you answered "yes!" to all of three questions, then Exo might be right for you!
 
 # Contact
 
@@ -200,6 +190,11 @@ seeking user feedback and collaboration. Please feel free to reach out to [exo@m
 or [yuka@csail.mit.edu](mailto:yuka@csail.mit.edu) with any questions you may have.
 
 # Publications & Learning More
+
+A more in-depth tutorial on using Exo to develop kernels for custom hardware accelerators is available [here](./tutorial.html).
+
+The gist of Exo's design principles and features is summarized in the [design doc].
+[Scheduling examples][examples] shows how Exo can be used in more realistic optimization scenarios, and [documentation][exo-docs] details all features of Exo. 
 
 We have published several papers on Exo so far. For an overview, we recommend starting with our PLDI '22 paper. If you use Exo, please make sure to cite these papers!
 
@@ -212,11 +207,14 @@ We have published several papers on Exo so far. For an overview, we recommend st
    International Conference on Programming Language Design and 
    Implementation (PLDI 2022). Association for Computing 
    Machinery, New York, NY, USA, 703–718.
+2. **[ASPLOS 25]:** [Yuka Ikarashi][yuka-web], Kevin Qian, [Samir Droubi][samir-web], [Alex Reinking][alex-web], [Gilbert Louis Bernstein][gilbert-web], and [Jonathan Ragan-Kelley][jrk-web]. 2025. 
+   [Exo 2: Growing a Scheduling Language][exo2-arxiv]
+   In Proceedings of the 30th ACM International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS 2025). Association for Computing Machinery, New York, NY, USA.
 
 Here is the talk we gave at PLDI 2022:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fFBzsbQjNyU" title="Exocompilation for productive programming of hardware accelerators" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-2. **[CGO 24]:** [Adrián Castelló][adrian-web], [Julian Bellavita][julien-web], [Grace Dinh][grace-web], [Yuka Ikarashi][yuka-web], Héctor Martínez. 2024. [Tackling the Matrix Multiplication Micro-kernel Generation with Exo][cgo-arxiv]. In Proceedings of the 2024 IEEE/ACM International Symposium on Code Generation and Optimization (CGO 2024). IEEE Press, Edinburgh, United Kingdom, 182–192.
+3. **[CGO 24]:** [Adrián Castelló][adrian-web], [Julian Bellavita][julien-web], [Grace Dinh][grace-web], [Yuka Ikarashi][yuka-web], Héctor Martínez. 2024. [Tackling the Matrix Multiplication Micro-kernel Generation with Exo][cgo-arxiv]. In Proceedings of the 2024 IEEE/ACM International Symposium on Code Generation and Optimization (CGO 2024). IEEE Press, Edinburgh, United Kingdom, 182–192.
 
 ### Thesis
 1. [Yuka Ikarashi][yuka-web]'s Master thesis, 2022. [Exocompilation for Productive Programming of Hardware Accelerators][yuka-master] (same as the PLDI 22 paper)
@@ -224,12 +222,13 @@ Here is the talk we gave at PLDI 2022:
 3. Kevin Qian's Master thesis, 2024. [Practical Exocompilation for Performance Engineers in User-Schedulable Languages][kevin-thesis]
 
 [exo-acm]: https://dl.acm.org/doi/abs/10.1145/3519939.3523446
+[exo2-arxiv]: https://arxiv.org/abs/2411.07211
 [yuka-web]: https://people.csail.mit.edu/yuka/
 [gilbert-web]: http://www.gilbertbernstein.com/
 [alex-web]: https://alexreinking.com
 [hasan-web]: https://hngenc.github.io/
 [jrk-web]: https://people.csail.mit.edu/jrk/
-[scheduling example]: https://github.com/exo-lang/exo/tree/master/examples
+[scheduling example]: https://github.com/exo-lang/exo/tree/master/examples/avx2_matmul
 [Halide]: https://halide-lang.org
 [TVM]: https://tvm.apache.org/
 [Tiramisu]: http://tiramisu-compiler.org/
@@ -241,4 +240,7 @@ Here is the talk we gave at PLDI 2022:
 [julien-web]: https://www.linkedin.com/in/julian-bellavita-5876551ba/
 [grace-web]: https://dinh.ai/
 [cgo-arxiv]: https://arxiv.org/pdf/2310.17408
+[design doc]: https://github.com/exo-lang/exo/blob/main/docs/Design.md
+[examples]: https://github.com/exo-lang/exo/tree/main/examples
+[exo-docs]: https://github.com/exo-lang/exo/tree/main/docs
 

@@ -16,7 +16,7 @@
 title: The Exo Language
 email: exo@mit.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  Exo is a low-level language and a compiler designed to help
+  Exo is a low-level user-schedulable language designed to help
   performance engineers write, optimize, and target high-performance
   computing kernels onto new hardware accelerators.
 baseurl: "" # the subpath of your site, e.g. /blog

@@ -105,8 +105,8 @@ def example_sgemm(
 And now we can run the exo compiler:
 
 ```
-$ exocc -o out --stem example example.py
-$ ls out
+$ exocc example.py
+$ ls example
 example.c  example.h
 ```
 
@@ -166,7 +166,7 @@ int main(int argc, char* argv[]) {
 Then this can be easily compiled and run:
 
 ```
-$ gcc -I out/ -o runner main.c out/example.c
+$ gcc -I example/ -o runner main.c example/example.c
 $ ./runner 128 128 128
 Each iteration ran in 11590 milliseconds
 ```

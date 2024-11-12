@@ -49,7 +49,7 @@ code.
 
 You might ask: isn't giving performance engineers more control a bad thing? After all, they would have to choose which optimizations to apply for each and every kernel they encounter.
 We addresses this concern with Exo's Cursors mechanism, which allows users to define new scheduling operators directly in their code, external to the compiler.
-This enables the creation of reusable scheduling libraries that can amortize the effort of scheduling across many kernels.
+This enables "building up" reusable scheduling libraries that can amortize the effort of writing schedules across many kernels.
 By doing so, the total amount of scheduling code required can be reduced by orders of magnitude compared to optimizing each kernel one by one.
 
 Another key part of exocompilation is that performance engineers can 

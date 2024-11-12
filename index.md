@@ -34,7 +34,7 @@ the compiler's optimizations are totally automatic, there's no good
 way to fix it when it does the wrong thing and gives you 45% 
 efficiency instead of 90%.
 
-# Optimizing Code
+# Exocompilation
 
 With exocompilation, we put the performance engineer back in the 
 driver's seat. Responsibility for choosing which optimizations to 

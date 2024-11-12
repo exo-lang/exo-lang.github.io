@@ -214,8 +214,6 @@ We have published several papers on Exo so far. For an overview, we recommend st
 Here is the talk we gave at PLDI 2022:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fFBzsbQjNyU" title="Exocompilation for productive programming of hardware accelerators" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-3. **[CGO 24]:** [Adrián Castelló][adrian-web], [Julian Bellavita][julien-web], [Grace Dinh][grace-web], [Yuka Ikarashi][yuka-web], Héctor Martínez. 2024. [Tackling the Matrix Multiplication Micro-kernel Generation with Exo][cgo-arxiv]. In Proceedings of the 2024 IEEE/ACM International Symposium on Code Generation and Optimization (CGO 2024). IEEE Press, Edinburgh, United Kingdom, 182–192.
-
 ### Thesis
 1. [Yuka Ikarashi][yuka-web]'s Master thesis, 2022. [Exocompilation for Productive Programming of Hardware Accelerators][yuka-master] (same as the PLDI 22 paper)
 2. [Samir Droubi][samir-web]'s Master thesis, 2024. [ExoBLAS: Meta-Programming a High-Performance BLAS via Scheduling Automations][samir-thesis]

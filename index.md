@@ -191,8 +191,9 @@ or [yuka@csail.mit.edu](mailto:yuka@csail.mit.edu) with any questions you may ha
 
 # Publications & Learning More
 
-A more in-depth tutorial on using Exo to develop kernels for custom hardware accelerators is available [here](./tutorial.html).
+Try running Exo on the [compiler exploror][godbolt]!
 
+A more in-depth tutorial on using Exo to develop kernels for custom hardware accelerators is available [here](./tutorial.html).
 The gist of Exo's design principles and features is summarized in the [design doc].
 [Scheduling examples][examples] shows how Exo can be used in more realistic optimization scenarios, and [documentation][exo-docs] details all features of Exo. 
 
@@ -241,4 +242,5 @@ Here is the talk we gave at PLDI 2022:
 [design doc]: https://github.com/exo-lang/exo/blob/main/docs/Design.md
 [examples]: https://github.com/exo-lang/exo/tree/main/examples
 [exo-docs]: https://github.com/exo-lang/exo/tree/main/docs
+[godbolt]: https://godbolt.exo-lang.dev/
 

@@ -1,0 +1,7 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+a.godbolt { -webkit-font-smoothing: antialiased; font-weight: normal; text-shadow: rgba(0, 0, 0, 0.4) 0 -1px 0; padding: 2px 2px 2px 2px; height: 30px; }
+a.godbolt:hover { color: #fff; text-decoration: none; }

@@ -215,7 +215,7 @@ We have published several papers on Exo so far. For an overview, we recommend st
 Here is the talk we gave at PLDI 2022:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fFBzsbQjNyU" title="Exocompilation for productive programming of hardware accelerators" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Thesis
+### Theses
 1. [Yuka Ikarashi][yuka-web]'s Master thesis, 2022. [Exocompilation for Productive Programming of Hardware Accelerators][yuka-master] (same as the PLDI 22 paper)
 2. [Samir Droubi][samir-web]'s Master thesis, 2024. [ExoBLAS: Meta-Programming a High-Performance BLAS via Scheduling Automations][samir-thesis]
 3. Kevin Qian's Master thesis, 2024. [Practical Exocompilation for Performance Engineers in User-Schedulable Languages][kevin-thesis]

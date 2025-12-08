@@ -219,6 +219,7 @@ Here is the talk we gave at PLDI 2022:
 1. [Yuka Ikarashi][yuka-web]'s Master thesis, 2022. [Exocompilation for Productive Programming of Hardware Accelerators][yuka-master] (same as the PLDI 22 paper)
 2. [Samir Droubi][samir-web]'s Master thesis, 2024. [ExoBLAS: Meta-Programming a High-Performance BLAS via Scheduling Automations][samir-thesis]
 3. Kevin Qian's Master thesis, 2024. [Practical Exocompilation for Performance Engineers in User-Schedulable Languages][kevin-thesis]
+4. Kenneth Moon's Master thesis, 2025. [Fuzzing for User-Schedulable Languages][kenneth-thesis]
 
 [exo-acm]: https://dl.acm.org/doi/abs/10.1145/3519939.3523446
 [exo2-arxiv]: https://arxiv.org/abs/2411.07211
@@ -243,4 +244,5 @@ Here is the talk we gave at PLDI 2022:
 [examples]: https://github.com/exo-lang/exo/tree/main/examples
 [exo-docs]: https://github.com/exo-lang/exo/tree/main/docs
 [godbolt]: https://godbolt.exo-lang.dev/
+[kenneth-thesis]: https://dspace.mit.edu/handle/1721.1/162916
 
